@@ -1,0 +1,105 @@
+$bg-grey: #E5E5E5;
+$text-grey: #3A404E;
+$text-dark-grey: #101828;
+$text-light-grey: #667085;
+$burgundy: #8E2424;
+$white: #FFFFFF;
+
+@function calculateRem($size) {
+    @return $size / 16px * 1rem;
+}
+
+@mixin remFontSize($size) {
+    font-size: calculateRem($size);
+}
+
+@mixin remHeight($size) {
+    height: calculateRem($size);
+}
+
+%sizeOne {
+    @include remFontSize(16px);
+}
+
+%sizeTwo {
+    @include remFontSize(18px);
+}
+
+%noMarking {
+    list-style-type: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+}
+.navbar {
+    @include remHeight(80px);
+    padding-left: calculateRem(32px);
+    padding-right: calculateRem(32px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    
+
+    &__logo {
+        flex-grow: 1;
+        @extend %sizeTwo;
+    }
+
+    &__links {
+        display: flex;
+        justify-content: flex-start;
+        flex-grow: 1.5;
+        @extend %sizeOne;
+        @extend %noMarking;
+
+        &__link {
+            &:not(:last-child) {
+            margin-right: calculateRem(32px);
+            }
+        }
+        
+        &__link a {
+            color: $text-light-grey;
+            text-decoration: none;
+        }
+    }
+
+    &__buttons {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__button {
+            &:first-child {
+                margin-right: calculateRem(12px);
+                padding-top: calculateRem(10px);
+                padding-right: calculateRem(18px);
+                padding-bottom: calculateRem(10px);
+                padding-left: calculateRem(18px);
+            }
+
+            &:last-child {
+                background-color: $burgundy;
+                border-radius: 8px;
+                padding-top: 0.7rem;
+                padding-right: 1rem;
+                padding-bottom: 0.7rem;
+                padding-left: 1rem;
+                color: $white;
+            }
+        }
+
+        @extend %noMarking;
+    }
+}
+
+* {
+    border: 1px solid red;
+}
