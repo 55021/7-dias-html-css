@@ -14,7 +14,13 @@ $white: #FFFFFF;
 }
 
 @mixin remHeight($size) {
-    height: calculateRem($size);
+    min-height: calculateRem($size);
+}
+
+@mixin for-phone-only {
+    @media (max-width: 1044px) {
+        @content;
+    }
 }
 
 %sizeOne {
@@ -51,18 +57,50 @@ body {
 }
 .navbar {
     @include remHeight(80px);
-    padding: 0 calculateRem(32px);
-    width: 100%;
+    padding: 0 calculateRem(112px);
+    max-width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     @extend %fontTwo;
+    @include for-phone-only {
+        flex-direction: column;
+        align-items: flex-start;
+
+        &.active {
+            padding-top: 1.6rem;
+        }
+    }
 
     &__logo {
         flex-grow: 1;
         @extend %sizeTwo;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 0.3rem;
+        color: $text-grey;
+    }
+
+    &__toggle-button {
+        position: absolute;
+        top: 1.7rem;
+        right: 1rem;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calculateRem(30px);
+        @include remHeight(21px);
+        @include for-phone-only {
+            display: flex;
+        }
+
+        &__bar {
+            height: 3px;
+            width: 100%;
+            background-color: $burgundy;
+            border-radius: 10px;
+        }
     }
 
     &__links {
@@ -71,16 +109,35 @@ body {
         flex-grow: 1.5;
         @extend %sizeOne;
         @extend %noMarking;
+        @include for-phone-only {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding-top: .5rem;
+            gap: .5rem;
+            width: 100%;  
+            text-align: center;
+
+            &.active {
+                display: flex;
+            }
+        }
 
         &__link {
             &:not(:last-child) {
             margin-right: calculateRem(32px);
             }
+
+            @include for-phone-only {
+                text-align: center;
+                margin-right: 0!important;
+                }
         }
         
         &__link a {
             color: $text-light-grey;
             text-decoration: none;
+            text-align: center;
         }
     }
 
@@ -89,11 +146,15 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+        @include for-phone-only {
+            display: none;
+        }
 
         &__button {
             &:first-child {
                 margin-right: calculateRem(12px);
                 padding: calculateRem(10px) calculateRem(18px);
+                color: $text-light-grey;
             }
 
             &:last-child {
@@ -110,11 +171,13 @@ body {
 
 .header {
     @include remHeight(407px);
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: calculateRem(24px);
+    text-align: center;
 
     &__sobre {
         color: $burgundy;
@@ -135,10 +198,5 @@ body {
         max-width: calculateRem(792px);
         margin-left: 5rem;
         margin-right: 5rem;
-        text-align: center;
     }
-}
-
-* {
-    border: 1px solid red;
 }

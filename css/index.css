@@ -32,29 +32,83 @@ body {
 }
 
 .navbar {
-  height: 5rem;
-  padding: 0 2rem;
-  width: 100%;
+  min-height: 5rem;
+  padding: 0 7rem;
+  max-width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1044px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar.active {
+    padding-top: 1.6rem;
+  }
 }
 .navbar__logo {
   flex-grow: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.3rem;
+  color: #3A404E;
+}
+.navbar__toggle-button {
+  position: absolute;
+  top: 1.7rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.875rem;
+  min-height: 1.3125rem;
+}
+@media (max-width: 1044px) {
+  .navbar__toggle-button {
+    display: flex;
+  }
+}
+.navbar__toggle-button__bar {
+  height: 3px;
+  width: 100%;
+  background-color: #8E2424;
+  border-radius: 10px;
 }
 .navbar__links {
   display: flex;
   justify-content: flex-start;
   flex-grow: 1.5;
 }
+@media (max-width: 1044px) {
+  .navbar__links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.5rem;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+  .navbar__links.active {
+    display: flex;
+  }
+}
 .navbar__links__link:not(:last-child) {
   margin-right: 2rem;
+}
+@media (max-width: 1044px) {
+  .navbar__links__link {
+    text-align: center;
+    margin-right: 0 !important;
+  }
 }
 .navbar__links__link a {
   color: #667085;
   text-decoration: none;
+  text-align: center;
 }
 .navbar__buttons {
   flex-grow: 1;
@@ -62,9 +116,15 @@ body {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 1044px) {
+  .navbar__buttons {
+    display: none;
+  }
+}
 .navbar__buttons__button:first-child {
   margin-right: 0.75rem;
   padding: 0.625rem 1.125rem;
+  color: #667085;
 }
 .navbar__buttons__button:last-child {
   background-color: #8E2424;
@@ -74,12 +134,14 @@ body {
 }
 
 .header {
-  height: 25.4375rem;
+  min-height: 25.4375rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  text-align: center;
 }
 .header__sobre {
   color: #8E2424;
@@ -95,11 +157,6 @@ body {
   max-width: 49.5rem;
   margin-left: 5rem;
   margin-right: 5rem;
-  text-align: center;
-}
-
-* {
-  border: 1px solid red;
 }
 
 /*# sourceMappingURL=index.css.map */
