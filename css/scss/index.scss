@@ -25,6 +25,18 @@ $white: #FFFFFF;
     @include remFontSize(18px);
 }
 
+%fontOne {
+    font-weight: 400;
+}
+
+%fontTwo {
+    font-weight: 500;
+}
+
+%fontThree {
+    font-weight: 600;
+}
+
 %noMarking {
     list-style-type: none;
 }
@@ -39,16 +51,18 @@ body {
 }
 .navbar {
     @include remHeight(80px);
-    padding-left: calculateRem(32px);
-    padding-right: calculateRem(32px);
+    padding: 0 calculateRem(32px);
     width: 100%;
     display: flex;
     align-items: center;
-    
+    @extend %fontTwo;
 
     &__logo {
         flex-grow: 1;
         @extend %sizeTwo;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
     }
 
     &__links {
@@ -79,24 +93,49 @@ body {
         &__button {
             &:first-child {
                 margin-right: calculateRem(12px);
-                padding-top: calculateRem(10px);
-                padding-right: calculateRem(18px);
-                padding-bottom: calculateRem(10px);
-                padding-left: calculateRem(18px);
+                padding: calculateRem(10px) calculateRem(18px);
             }
 
             &:last-child {
                 background-color: $burgundy;
                 border-radius: 8px;
-                padding-top: 0.7rem;
-                padding-right: 1rem;
-                padding-bottom: 0.7rem;
-                padding-left: 1rem;
+                padding: 0.8rem 1rem; //botei 0.7 e na solução tava 0.8, sou ninja
                 color: $white;
             }
         }
 
         @extend %noMarking;
+    }
+}
+
+.header {
+    @include remHeight(407px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: calculateRem(24px);
+
+    &__sobre {
+        color: $burgundy;
+        @extend %fontThree;
+        @include remFontSize(16px);
+    }
+
+    &__title {
+        color: $text-dark-grey;
+        @extend %fontThree;
+        @include remFontSize(48px);
+    }
+
+    &__subtitle {
+        color: $text-light-grey;
+        @extend %fontOne;
+        @include remFontSize(20px);
+        max-width: calculateRem(792px);
+        margin-left: 5rem;
+        margin-right: 5rem;
+        text-align: center;
     }
 }
 
