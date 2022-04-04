@@ -159,4 +159,89 @@ body {
   margin-right: 5rem;
 }
 
+.metricas {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: space-evenly;
+  margin: 0 5rem 6rem;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+@media (max-width: 600px) {
+  .metricas {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+}
+.metricas div {
+  max-width: 17.5rem;
+}
+.metricas__metrica__title {
+  font-size: 3.75rem;
+  color: #8E2424;
+  font-weight: 600;
+  line-height: 4.5rem;
+}
+.metricas__metrica__subtitle {
+  font-size: 1.125rem;
+  color: #101828;
+  font-weight: 500;
+  line-height: 1.75rem;
+}
+.metricas__metrica__text {
+  font-size: 1rem;
+  color: #667085;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.vagas {
+  width: 100%;
+  padding: 6rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+.vagas__header {
+  max-width: 48rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.vagas__header__tag {
+  background-color: rgba(142, 36, 36, 0.05);
+  border-radius: 16px;
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #8E2424;
+  font-weight: 500;
+}
+.vagas__header__title {
+  margin-bottom: 1.25rem;
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  color: #101828;
+  font-weight: 600;
+}
+.vagas__header__subtitle {
+  font-size: 1.25rem;
+  line-height: 19rem;
+  font-weight: 400;
+  color: #667085;
+}
+.vagas__img {
+  padding: 0 2rem;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .vagas__img {
+    width: 100vw;
+  }
+}
+
 /*# sourceMappingURL=index.css.map */

@@ -4,6 +4,7 @@ $text-dark-grey: #101828;
 $text-light-grey: #667085;
 $burgundy: #8E2424;
 $white: #FFFFFF;
+$badge-red: rgba(142, 36, 36, 0.05);
 
 @function calculateRem($size) {
     @return $size / 16px * 1rem;
@@ -19,6 +20,12 @@ $white: #FFFFFF;
 
 @mixin for-phone-only {
     @media (max-width: 1044px) {
+        @content;
+    }
+}
+
+@mixin portrait-mode {
+    @media (max-width: 600px) {
         @content;
     }
 }
@@ -198,5 +205,100 @@ body {
         max-width: calculateRem(792px);
         margin-left: 5rem;
         margin-right: 5rem;
+    }
+}
+
+.metricas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: space-evenly;
+    margin: 0 calculateRem(80px) calculateRem(96px);
+    padding: 0 calculateRem(32px);
+    gap: calculateRem(32px);
+
+    @include portrait-mode {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    & div {
+        max-width: calculateRem(280px);
+    }
+
+    &__metrica {
+
+        &__title {
+            @include remFontSize(60px);
+            color: $burgundy;
+            font-weight: 600;
+            line-height: calculateRem(72px);
+        }
+
+        &__subtitle {
+            @include remFontSize(18px);
+            color: $text-dark-grey;
+            font-weight: 500;
+            line-height: calculateRem(28px);
+        }
+
+        &__text {
+            @include remFontSize(16px);
+            color: $text-light-grey;
+            font-weight: 400;
+            line-height: calculateRem(24px);
+        }
+    }
+}
+
+.vagas {
+    width: 100%;
+    padding: calculateRem(96px) calculateRem(80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calculateRem(64px);
+
+    &__header {
+        max-width: calculateRem(768px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+
+        &__tag {
+            background-color: $badge-red;
+            border-radius: 16px;
+            padding: calculateRem(4px) calculateRem(12px);
+            margin-bottom: calculateRem(16px);
+            @include remFontSize(14px);
+            line-height: calculateRem(20px);
+            color: $burgundy;
+            font-weight: 500;
+        }
+
+        &__title {
+            margin-bottom: calculateRem(20px);
+            @include remFontSize(36px);
+            line-height: calculateRem(44px);
+            color: $text-dark-grey;
+            font-weight: 600;
+        }
+
+        &__subtitle {
+            @include remFontSize(20px);
+            line-height: calculateRem(304px);
+            font-weight: 400;
+            color: $text-light-grey;
+        }
+    }
+
+    &__img {
+        padding: 0 calculateRem(32px);
+        width: 100%;
+
+        @include portrait-mode {
+            width: 100vw;
+        }
     }
 }
