@@ -52,6 +52,7 @@ body {
   top: 1.7rem;
   right: 1rem;
   transition: 0.4s;
+  transition-timing-function: ease-in;
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -82,6 +83,7 @@ body {
   display: flex;
   justify-content: flex-start;
   flex-grow: 1.5;
+  transition: 0.4s;
 }
 @media (max-width: 1044px) {
   .navbar__links {
@@ -90,38 +92,33 @@ body {
     width: 30vw;
     height: 200%;
     transition: 0.4s;
-    background-color: rgba(255, 255, 255, 0.23);
-    -webkit-box-shadow: -6px 0px 15px 5px rgba(199, 199, 199, 0.41);
+    transition-timing-function: ease-in;
+    background-color: #FFFFFF;
     box-shadow: -6px 0px 15px 5px rgba(199, 199, 199, 0.41);
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.8rem;
   }
   .navbar__links.active {
     right: 0;
     display: flex;
+    padding: 2rem 1rem;
   }
+}
+.navbar__links__link:first-child {
+  margin-top: 3rem;
 }
 .navbar__links__link:not(:last-child) {
   margin-right: 2rem;
 }
 @media (max-width: 1044px) {
   .navbar__links__link {
-    position: absolute;
-    left: 0;
-    background-color: #8E2424;
     margin-right: 0 !important;
   }
 }
 .navbar__links__link a {
   color: #667085;
   text-decoration: none;
-}
-@media (max-width: 1044px) {
-  .navbar__links__link a {
-    color: #8E2424;
-  }
 }
 .navbar__buttons {
   flex-grow: 1;

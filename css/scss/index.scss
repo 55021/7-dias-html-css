@@ -101,6 +101,7 @@ body {
         top: 1.7rem;
         right: 1rem;
         transition: .4s;
+        transition-timing-function: ease-in;
         display: none;
         flex-direction: column;
         justify-content: space-between;
@@ -131,6 +132,7 @@ body {
         display: flex;
         justify-content: flex-start;
         flex-grow: 1.5;
+        transition: .4s;
         @extend %sizeOne;
         @extend %noMarking;
         @include for-phone-only {
@@ -139,9 +141,8 @@ body {
             width: 30vw;
             height: 200%;
             transition: .4s;
-            // background-color: $white;
-            background-color: rgba(255,255,255,0.23);
-            -webkit-box-shadow: -6px 0px 15px 5px rgba(199,199,199,0.41); 
+            transition-timing-function: ease-in;
+            background-color: $white;
             box-shadow: -6px 0px 15px 5px rgba(199,199,199,0.41);
             // display: none;
             flex-direction: column;
@@ -149,39 +150,34 @@ body {
             // align-items: flex-start;
             // align-items: center;
             // padding-top: .5rem;
-            gap: .5rem;
+            gap: .8rem;
             // width: 100%;  
             // text-align: center;
 
             &.active {
                 right: 0;
                 display: flex;
+                padding: 2rem 1rem;
             }
         }
 
         &__link {
-            &:not(:last-child) {
-            margin-right: calculateRem(32px);
+            &:first-child {
+                margin-top: 3rem;
             }
 
+            &:not(:last-child) {
+            margin-right: calculateRem(32px);
+            } 
+
             @include for-phone-only {
-                // position: absolute;
-                // left: 0;
-                background-color: $burgundy;
-                // text-align: center;
                 margin-right: 0!important;
-                margin: calculateRem(20px) 0;
                 }
         }
         
         &__link a {
             color: $text-light-grey;
             text-decoration: none;
-            //text-align: center;
-
-            @include for-phone-only {
-                color: $burgundy;
-            }
         }
     }
 
