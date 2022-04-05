@@ -5,6 +5,7 @@ $text-light-grey: #667085;
 $burgundy: #8E2424;
 $white: #FFFFFF;
 $badge-red: rgba(142, 36, 36, 0.05);
+$border-grey: #EAECF0;
 
 @function calculateRem($size) {
     @return $size / 16px * 1rem;
@@ -334,4 +335,48 @@ body {
             width: 100vw;
         }
     }
+
+    &__lista {
+        display: flex;
+        flex-direction: column;
+        width: calculateRem(768px);
+        gap: calculateRem(32px);
+
+        &__title {
+            @include remFontSize(20px);
+            line-height: calculateRem(30px);
+            font-weight: 500;
+        }
+
+        &__vaga {
+            border: 1px solid $border-grey;
+            border-radius: 16px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: calculateRem(24px);
+            padding: calculateRem(24px) calculateRem(24px) calculateRem(28px);
+            flex-direction: calculateRem(24px);
+
+            &__title h3 {
+                font-weight: 500;
+                @include remFontSize(18px);
+                line-height: calculateRem(28px);
+                color: $text-dark-grey;
+            }
+
+            &__description {                
+                display: flex;
+                flex-direction: row;
+                gap: calculateRem(24px);
+                
+                    & h4 {
+                    font-weight: 500;
+                    @include remFontSize(16px);
+                    line-height: calculateRem(24px);
+                    color: $text-light-grey;
+                    }
+            }
+    }
+}
 }
