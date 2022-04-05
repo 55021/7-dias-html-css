@@ -30,6 +30,12 @@ $badge-red: rgba(142, 36, 36, 0.05);
     }
 }
 
+@mixin large-screen {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
 %sizeOne {
     @include remFontSize(16px);
 }
@@ -62,6 +68,7 @@ body {
     font-family: 'Inter', sans-serif;
     width: 100%;
 }
+
 .navbar {
     @include remHeight(80px);
     padding: 0 calculateRem(112px);
@@ -70,14 +77,14 @@ body {
     align-items: center;
     justify-content: center;
     @extend %fontTwo;
-    @include for-phone-only {
-        flex-direction: column;
-        align-items: flex-start;
+    // @include for-phone-only {
+        // flex-direction: column;
+        // align-items: flex-start;
 
-        &.active {
-            padding-top: 1.6rem;
-        }
-    }
+        // &.active {
+            //padding-top: 1.6rem;
+        // }
+    //}
 
     &__logo {
         flex-grow: 1;
@@ -93,6 +100,8 @@ body {
         position: absolute;
         top: 1.7rem;
         right: 1rem;
+        transition: .4s;
+        transition-timing-function: ease-in;
         display: none;
         flex-direction: column;
         justify-content: space-between;
@@ -100,6 +109,15 @@ body {
         @include remHeight(21px);
         @include for-phone-only {
             display: flex;
+        }
+
+        &.active {
+            right: 26vw;
+            margin-right: 25px;
+
+            @include large-screen {
+                right: 29vw;
+            }
         }
 
         &__bar {
@@ -114,29 +132,45 @@ body {
         display: flex;
         justify-content: flex-start;
         flex-grow: 1.5;
+        transition: .4s;
         @extend %sizeOne;
         @extend %noMarking;
         @include for-phone-only {
-            display: none;
+            position: absolute;
+            right: -30vw;
+            width: 30vw;
+            height: 200%;
+            transition: .4s;
+            transition-timing-function: ease-in;
+            background-color: $white;
+            box-shadow: -6px 0px 15px 5px rgba(199,199,199,0.41);
+            // display: none;
             flex-direction: column;
-            align-items: center;
-            padding-top: .5rem;
-            gap: .5rem;
-            width: 100%;  
-            text-align: center;
+            justify-content: center;
+            // align-items: flex-start;
+            // align-items: center;
+            // padding-top: .5rem;
+            gap: .8rem;
+            // width: 100%;  
+            // text-align: center;
 
             &.active {
+                right: 0;
                 display: flex;
+                padding: 2rem 1rem;
             }
         }
 
         &__link {
-            &:not(:last-child) {
-            margin-right: calculateRem(32px);
+            &:first-child {
+                margin-top: 3rem;
             }
 
+            &:not(:last-child) {
+            margin-right: calculateRem(32px);
+            } 
+
             @include for-phone-only {
-                text-align: center;
                 margin-right: 0!important;
                 }
         }
@@ -144,7 +178,6 @@ body {
         &__link a {
             color: $text-light-grey;
             text-decoration: none;
-            text-align: center;
         }
     }
 
