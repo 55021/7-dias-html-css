@@ -132,6 +132,7 @@ body {
     &__links {
         display: flex;
         justify-content: flex-start;
+        align-items: center;
         flex-grow: 1.5;
         transition: .4s;
         @extend %sizeOne;
@@ -140,7 +141,7 @@ body {
             position: absolute;
             right: -30vw;
             width: 30vw;
-            height: 200%;
+            height: 250%;
             transition: .4s;
             transition-timing-function: ease-in;
             background-color: $white;
@@ -148,7 +149,7 @@ body {
             // display: none;
             flex-direction: column;
             justify-content: center;
-            // align-items: flex-start;
+            align-items: flex-start;
             // align-items: center;
             // padding-top: .5rem;
             gap: .8rem;
@@ -163,15 +164,15 @@ body {
         }
 
         &__link {
-            &:first-child {
-                margin-top: 3rem;
-            }
-
             &:not(:last-child) {
             margin-right: calculateRem(32px);
             } 
 
             @include for-phone-only {
+                &:first-child {
+                    margin-top: 3rem;
+                }
+
                 margin-right: 0!important;
                 }
         }

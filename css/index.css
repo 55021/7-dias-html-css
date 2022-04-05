@@ -82,6 +82,7 @@ body {
 .navbar__links {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   flex-grow: 1.5;
   transition: 0.4s;
 }
@@ -90,13 +91,14 @@ body {
     position: absolute;
     right: -30vw;
     width: 30vw;
-    height: 200%;
+    height: 250%;
     transition: 0.4s;
     transition-timing-function: ease-in;
     background-color: #FFFFFF;
     box-shadow: -6px 0px 15px 5px rgba(199, 199, 199, 0.41);
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     gap: 0.8rem;
   }
   .navbar__links.active {
@@ -105,15 +107,15 @@ body {
     padding: 2rem 1rem;
   }
 }
-.navbar__links__link:first-child {
-  margin-top: 3rem;
-}
 .navbar__links__link:not(:last-child) {
   margin-right: 2rem;
 }
 @media (max-width: 1044px) {
   .navbar__links__link {
     margin-right: 0 !important;
+  }
+  .navbar__links__link:first-child {
+    margin-top: 3rem;
   }
 }
 .navbar__links__link a {
