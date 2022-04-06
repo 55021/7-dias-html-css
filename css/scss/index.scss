@@ -5,6 +5,7 @@ $text-light-grey: #667085;
 $burgundy: #8E2424;
 $white: #FFFFFF;
 $badge-red: rgba(142, 36, 36, 0.05);
+$container-bg: rgba(195, 25, 25, 0.03);
 $border-grey: #EAECF0;
 
 @function calculateRem($size) {
@@ -177,7 +178,7 @@ body {
             &:hover {
                 cursor: pointer;
             }
-            
+
             &:first-child {
                 margin-right: calculateRem(12px);
                 padding: calculateRem(10px) calculateRem(18px);
@@ -366,4 +367,74 @@ body {
             }
     }
 }
+}
+
+.depoimentos {
+    width: 100%;
+    padding: 0 calculateRem(80px) calculateRem(96px);
+    @include for-phone-only {
+        padding: 0 calculateRem(40px) calculateRem(96px);
+    }
+
+    &__container {
+        margin: 0 calculateRem(32px);
+        padding: calculateRem(64px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: calculateRem(32px);
+        background-color: $container-bg;
+        @include for-phone-only {
+            margin: 0;
+        }
+
+        &__texto {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+
+            & h4 {
+                font-weight: 600;
+                font-size: calculateRem(14px);
+                line-height: calculateRem(20px);
+                color: $burgundy;
+            }
+
+            & h2 {
+                font-weight: 500;
+                font-size: calculateRem(36px);
+                line-height: calculateRem(44px);
+                color: $text-dark-grey;
+            }
+        }
+        
+        &__quem {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+
+            &__texto {
+                & h6 {
+                    font-weight: 400;
+                    font-size: calculateRem(14px);
+                    line-height: calculateRem(20px);
+                    color: $text-light-grey;
+                    
+                    &:first-child {
+                        font-size: 1rem;
+                        line-height: calculateRem(24px);
+                        font-weight: 500;
+                        color: $text-dark-grey;
+                    }
+                }
+            }
+        }
+    }
 }
