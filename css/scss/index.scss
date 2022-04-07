@@ -7,6 +7,8 @@ $white: #FFFFFF;
 $badge-red: rgba(142, 36, 36, 0.05);
 $container-bg: rgba(195, 25, 25, 0.03);
 $border-grey: #EAECF0;
+$footer-bg: #F9FAFB;
+$footer-text: #98A2B3;
 
 @function calculateRem($size) {
     @return $size / 16px * 1rem;
@@ -435,6 +437,83 @@ body {
                     }
                 }
             }
+        }
+    }
+}
+
+.footer {
+    width: 100%;
+    padding: calculateRem(94px) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: $footer-bg;
+
+    &__form {
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: calculateRem(40px);
+        align-items: center;
+
+        &__text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: calculateRem(20px);
+            text-align: center;
+
+            &__title {
+                font-weight: 600;
+                font-size: calculateRem(36px);
+                line-height: calculateRem(44px);
+                color: $text-dark-grey;
+            }
+
+            &__subtitle {
+                font-weight: 400;
+                font-size: calculateRem(20px);
+                line-height: calculateRem(30px);
+                color: $text-light-grey;
+            }
+        }
+
+        &__input {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            padding: 0 calculateRem(138px);
+
+            & input {
+                width: 80%;
+                border: 1px solid #D0D5DD;
+                border-radius: 8px;
+                padding: calculateRem(12px) calculateRem(14px);
+            }
+
+            & button {
+                max-width: calculateRem(116px);
+                background-color: $burgundy;
+                border: none;
+                padding: calculateRem(12px) calculateRem(20px);
+                border-radius: 8px;
+                color: $white;
+                font-weight: 500;
+                font-size: 1rem;
+                line-height: calculateRem(24px);
+            }
+        }
+    }
+
+    &__credit {
+        & span {
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: calculateRem(24px);
+            color: $footer-text;
         }
     }
 }
